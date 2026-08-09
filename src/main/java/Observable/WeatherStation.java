@@ -30,6 +30,7 @@ public class WeatherStation implements WeatherPublisher{
     @Override
     public void notiifyAll() {
         for(WeatherSubscriber sub : subscrbers){
+            //Push model
             sub.update(this.weatherData);
         }
         System.out.println("Notification sent to all\n\n");
@@ -42,5 +43,6 @@ public class WeatherStation implements WeatherPublisher{
         this.weatherData.setHumidity(humidity);
         System.out.println("Weather data changed");
         notiifyAll();
+
     }
 }
